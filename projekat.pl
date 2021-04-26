@@ -255,7 +255,7 @@ possible_attack_by_execution_flow(S,J):-execution-flow(J,S2), contain(S,S2).
 possible_attack_by_likelihood_of_attack(J,L):-findall(N,likelihood-of-attack(N,J),L).
 possible_attack_by_typical_severity(J,L):-findall(N,typical-severity(N,J),L).
 
-possible_mitigation_measures(N,M):-name(N), mitigations(N,M2), append([],M2,M).
-possible_prerequisites(N,P):-name(N), prerequisites(N,P2), append([],P2,P).
-possible_weaknesses(N,W):-name(N), weaknesses(N,W2), append([],W2,W).
-execution_flow_by_attack(N,E):-name(N), execution-flow(N,E2), append([],E2,E).
+possible_mitigation_measures(N,M):-mitigations(N,M2), append([],M2,M).
+possible_prerequisites(N,P):-prerequisites(N,P2), append([],P2,P).
+possible_weaknesses(N,W):- weaknesses(N,W2), append([],W2,W).
+execution_flow_by_attack(N,E):-execution-flow(N,E2), append([],E2,E).
