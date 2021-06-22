@@ -7,7 +7,7 @@ package rs.ac.uns.ftn.projekat.izgled;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-
+import java.awt.GridBagConstraints;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +25,7 @@ import javax.swing.border.BevelBorder;
 
 import rs.ac.uns.ftn.projekat.dialogs.AddAttackDialog;
 import rs.ac.uns.ftn.projekat.dialogs.BayesDialog;
+import rs.ac.uns.ftn.projekat.dialogs.Fuzzy;
 
 
 
@@ -58,6 +59,9 @@ public class MainFrame extends JFrame {
 		//statusBar
 		this.setLayout(new BorderLayout());
 		JPanel statusPanel = new JPanel();
+		
+
+		
 		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		this.add(statusPanel, BorderLayout.SOUTH);
 		statusPanel.setPreferredSize(new Dimension(this.getWidth(), 25));
@@ -69,12 +73,17 @@ public class MainFrame extends JFrame {
 		JLabel statusLabel  = new JLabel(this.getTitle());
 		statusPanel.add(statusLabel,BorderLayout.CENTER);
 		
+	
 		JButton btn1 = new JButton("Add attack");
 		panel.add(btn1);
 		
 		JToggleButton btn2 = new JToggleButton("Incident classification");
 		panel.add(btn2);
 
+
+		JToggleButton btn3 = new JToggleButton("Fuzzy");
+		panel.add(btn3);
+		
 		btn1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -99,6 +108,17 @@ public class MainFrame extends JFrame {
 				}
 		});
 		
+		btn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+						
+				Fuzzy f=new Fuzzy();
+				f.setVisible(true);
+					return;
+				}
+		});
 		SimpleDateFormat date_format=new SimpleDateFormat("HH:mm:ss  dd.MM.yyyy.");
 		JLabel timedate=new JLabel(date_format.format(new GregorianCalendar().getTime()));
 		Timer timer=new Timer(500,new ActionListener() {

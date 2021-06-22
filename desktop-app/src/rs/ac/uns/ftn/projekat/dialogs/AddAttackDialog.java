@@ -54,9 +54,6 @@ public class AddAttackDialog extends JDialog{
 		txtProsek.setPreferredSize(new Dimension(160,20));
 		txtDatumUpisa.setPreferredSize(new Dimension(160,20));
 		
-		ButtonGroup group=new ButtonGroup();
-		group.add(budzet);
-		group.add(samofinansiranje);
 		
 		setBackground(Color.GREEN);
 		setModal(true);
@@ -69,10 +66,7 @@ public class AddAttackDialog extends JDialog{
 		width=width*0.3;
 		setBounds(150, 150, (int)width, (int)height);
 		setLocationRelativeTo(null);
-		JPanel panelBottom = new JPanel();
-		JButton ButtonPotvrda=new JButton("Potvrda");
-		panelBottom.add(ButtonPotvrda);
-		JButton ButtonOdustanak=new JButton("Odustanak");
+		
 		
 		JLabel ime = new JLabel("Ime*");
 		JLabel prezime = new JLabel("Prezime*");
@@ -146,13 +140,6 @@ public class AddAttackDialog extends JDialog{
 		panelBrojIndexa.add(txtBrojIndexa);
 		box.add(panelBrojIndexa);
 		
-		txtProsek.setEnabled(false);
-		txtProsek.setText("0");
-		
-		trengodstud.addItem("1");
-		trengodstud.addItem("2");
-		trengodstud.addItem("3");
-	    trengodstud.addItem("4");
 		
 		
 }}
