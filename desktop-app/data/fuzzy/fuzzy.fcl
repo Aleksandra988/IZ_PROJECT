@@ -1,0 +1,75 @@
+FUNCTION_BLOCK sablon
+
+VAR_INPUT               // ulazne varijable
+	age : REAL;
+	sex : REAL;
+	race : REAL;
+END_VAR
+
+VAR_OUTPUT              // izlazne varijable
+	result : REAL;
+END_VAR
+
+FUZZIFY age
+	TERM age_niska_range := (0, 1) (0.5, 1) (1, 0);
+	TERM age_srednja_range := (0.5, 0) (1, 1) (1.5, 0);
+	TERM age_visoka_range := (1, 0) (2, 1) (3, 1);
+END_FUZZIFY
+
+FUZZIFY sex
+	TERM sex_niska_range := (0, 1) (0.5, 1) (1, 0);
+	TERM sex_srednja_range := (0.5, 0) (1, 1) (1.5, 0);
+	TERM sex_visoka_range := (1, 0) (2, 1) (3, 1);
+END_FUZZIFY
+
+FUZZIFY race
+	TERM race_niska_range := (0, 1) (0.5, 1) (1, 0);
+	TERM race_srednja_range := (0.5, 0) (1, 1) (1.5, 0);
+	TERM race_visoka_range := (1, 0) (2, 1) (3, 1);
+END_FUZZIFY
+
+
+DEFUZZIFY result
+	TERM niska_vrv := (0,1) (50,0) (100, 0);
+	TERM srednja_vrv := (0,0) (50,1) (100, 0);
+	TERM visoka_vrv := (0,0) (50,0) (100, 1);
+
+	METHOD : COG;		// 'Center Of Gravity' odn. centar mase (koristi se i MM odn. mean max)
+	DEFAULT := 0;		// podrazumevana vrednost (ukoliko nijedno pravilo nije aktivirano)
+END_DEFUZZIFY
+
+RULEBLOCK blok1
+	AND : MIN;			// za konjunkciju se koristi minimum (samim tim sa za disjunkciju koristi maksimum)
+	ACT : MIN;			// za zaklju?ivanje (implikaciju) je izabran minimum (Mamdani implikacija) (osim MIN koristi se i PROD)
+	ACCU : MAX;			// za kompoziciju je izabran maksimum (osim MAX koristi se i SUM)
+
+	RULE 1 : IF age IS age_niska_range AND sex IS sex_niska_range AND race IS race_niska_range THEN result IS niska_vrv ;
+	RULE 2 : IF age IS age_niska_range AND sex IS sex_niska_range AND race IS race_srednja_range THEN result IS niska_vrv ;
+	RULE 3 : IF age IS age_niska_range AND sex IS sex_niska_range AND race IS race_visoka_range THEN result IS srednja_vrv ;
+	RULE 4 : IF age IS age_niska_range AND sex IS sex_srednja_range AND race IS race_niska_range THEN result IS niska_vrv ;
+	RULE 5 : IF age IS age_niska_range AND sex IS sex_srednja_range AND race IS race_srednja_range THEN result IS srednja_vrv ;
+	RULE 6 : IF age IS age_niska_range AND sex IS sex_srednja_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 7 : IF age IS age_niska_range AND sex IS sex_visoka_range AND race IS race_niska_range THEN result IS srednja_vrv ;
+	RULE 8 : IF age IS age_niska_range AND sex IS sex_visoka_range AND race IS race_srednja_range THEN result IS visoka_vrv ;
+	RULE 9 : IF age IS age_niska_range AND sex IS sex_visoka_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 10 : IF age IS age_srednja_range AND sex IS sex_niska_range AND race IS race_niska_range THEN result IS niska_vrv ;
+	RULE 11 : IF age IS age_srednja_range AND sex IS sex_niska_range AND race IS race_srednja_range THEN result IS srednja_vrv ;
+	RULE 12 : IF age IS age_srednja_range AND sex IS sex_niska_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 13 : IF age IS age_srednja_range AND sex IS sex_srednja_range AND race IS race_niska_range THEN result IS srednja_vrv ;
+	RULE 14 : IF age IS age_srednja_range AND sex IS sex_srednja_range AND race IS race_srednja_range THEN result IS srednja_vrv ;
+	RULE 15 : IF age IS age_srednja_range AND sex IS sex_srednja_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 16 : IF age IS age_srednja_range AND sex IS sex_visoka_range AND race IS race_niska_range THEN result IS visoka_vrv ;
+	RULE 17 : IF age IS age_srednja_range AND sex IS sex_visoka_range AND race IS race_srednja_range THEN result IS visoka_vrv ;
+	RULE 18 : IF age IS age_srednja_range AND sex IS sex_visoka_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 19 : IF age IS age_visoka_range AND sex IS sex_niska_range AND race IS race_niska_range THEN result IS srednja_vrv ;
+	RULE 20 : IF age IS age_visoka_range AND sex IS sex_niska_range AND race IS race_srednja_range THEN result IS visoka_vrv ;
+	RULE 21 : IF age IS age_visoka_range AND sex IS sex_niska_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 22 : IF age IS age_visoka_range AND sex IS sex_srednja_range AND race IS race_niska_range THEN result IS visoka_vrv ;
+	RULE 23 : IF age IS age_visoka_range AND sex IS sex_srednja_range AND race IS race_srednja_range THEN result IS visoka_vrv ;
+	RULE 24 : IF age IS age_visoka_range AND sex IS sex_srednja_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+	RULE 25 : IF age IS age_visoka_range AND sex IS sex_visoka_range AND race IS race_niska_range THEN result IS visoka_vrv ;
+	RULE 26 : IF age IS age_visoka_range AND sex IS sex_visoka_range AND race IS race_srednja_range THEN result IS visoka_vrv ;
+	RULE 27 : IF age IS age_visoka_range AND sex IS sex_visoka_range AND race IS race_visoka_range THEN result IS visoka_vrv ;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

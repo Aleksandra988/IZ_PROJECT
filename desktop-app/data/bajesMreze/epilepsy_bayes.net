@@ -1,0 +1,111 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node seizures
+{
+     label = "C1";
+     position = (103 148);
+     states = ("yes" "no");
+}
+
+node headache
+{
+     label = "C2";
+     position = (237 141);
+     states = ("yes" "no");
+}
+
+node abnormal_involuntary_movements
+{
+     label = "C3";
+     position = (354 138);
+     states = ("yes" "no");
+}
+
+node disturbance_of_memory
+{
+     label = "C4";
+     position = (508 140);
+     states = ("yes" "no");
+}
+
+node difficulty_speaking
+{
+     label = "C5";
+     position = (676 154);
+     states = ("yes" "no");
+}
+
+node epilepsy
+{
+     label = "C6";
+     position = (386 322);
+     states = ("yes" "no");
+}
+
+potential (seizures)
+{
+ data = ( 0.91 0.09 );
+}
+
+potential (headache)
+{
+ data = ( 0.32 0.68 );
+}
+
+potential (abnormal_involuntary_movements)
+{
+ data = ( 0.13 0.87 );
+}
+
+potential (disturbance_of_memory)
+{
+ data = ( 0.09 0.91 );
+}
+
+potential (difficulty_speaking)
+{
+ data = ( 0.04 0.96 );
+}
+
+potential (epilepsy | difficulty_speaking disturbance_of_memory abnormal_involuntary_movements headache seizures)
+{
+ data = (((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))))
+((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 0.0 1.0 ))))));
+}
+

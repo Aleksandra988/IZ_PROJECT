@@ -21,10 +21,11 @@ import javax.swing.JRadioButton;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
-import net.sourceforge.jFuzzyLogic.rule.RuleBlock;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 import javax.swing.JRadioButton;
+//import net.sourceforge.jFuzzyLogic.FIS;
+//import net.sourceforge.jFuzzyLogic.JFuzzyLogic;
 
 public class Fuzzy extends JDialog{
 	
@@ -44,14 +45,14 @@ public class Fuzzy extends JDialog{
 	static JLabel communication_path_jl=new JLabel("communication path");
 	static JLabel authentication_jl=new JLabel("authentication");
 	static JLabel value=new JLabel("vulnerability : MEDIUM");
+	private static final String fclFilename = "template.fcl";
 	private Variable tip;
 	FunctionBlock functionBlock;
 	public Fuzzy() {
-		//
-		String fileName = "template.fcl";
-		FIS fis = FIS.load(fileName,true);
+
+		FIS fis = FIS.load(fclFilename,true);
 		if( fis == null ) { // Error while loading?
-			System.err.println("Can't load file: '" + fileName + "'");
+			System.err.println("Can't load file: '" + fclFilename + "'");
 		}
 		functionBlock = fis.getFunctionBlock("attack");
 		//JFuzzyChart.get().chart(functionBlock);

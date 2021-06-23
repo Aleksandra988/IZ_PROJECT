@@ -1,0 +1,155 @@
+net
+{
+     node_size = (0 0);
+     name = "New BN";
+     UnBBayes_Color_Probabilistic_Description = "-256";
+     UnBBayes_Color_Probabilistic_Explanation = "-16711936";
+}
+
+node headache
+{
+     label = "C1";
+     position = (121 128);
+     states = ("yes" "no");
+}
+
+node nausea
+{
+     label = "C2";
+     position = (299 112);
+     states = ("yes" "no");
+}
+
+node vommiting
+{
+     label = "C3";
+     position = (451 113);
+     states = ("yes" "no");
+}
+
+node dizziness
+{
+     label = "C4";
+     position = (609 124);
+     states = ("yes" "no");
+}
+
+node diminished_vision
+{
+     label = "C5";
+     position = (748 137);
+     states = ("yes" "no");
+}
+
+node disturbance_of_memory
+{
+     label = "C6";
+     position = (899 156);
+     states = ("yes" "no");
+}
+
+node migraine
+{
+     label = "C7";
+     position = (496 392);
+     states = ("yes" "no");
+}
+
+potential (headache)
+{
+ data = ( 0.9 0.1 );
+}
+
+potential (nausea)
+{
+ data = ( 0.46 0.54 );
+}
+
+potential (vommiting)
+{
+ data = ( 0.39 0.61 );
+}
+
+potential (dizziness)
+{
+ data = ( 0.26 0.74 );
+}
+
+potential (diminished_vision)
+{
+ data = ( 0.17 0.83 );
+}
+
+potential (disturbance_of_memory)
+{
+ data = ( 0.07 0.93 );
+}
+
+potential (migraine | disturbance_of_memory diminished_vision dizziness vommiting nausea headache)
+{
+ data = ((((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))))
+((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))))
+(((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))))
+((((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 ))))
+(((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 1.0 0.0 )))
+((( 1.0 0.0 )
+( 1.0 0.0 ))
+(( 1.0 0.0 )
+( 0.0 1.0 )))))));
+}
+

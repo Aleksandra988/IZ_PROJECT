@@ -20,7 +20,7 @@ public class MyApp {
 	public static void main(String[] args) throws LoadException, IOException {
 		BaseIO io = new NetIO();
 		ProbabilisticNetwork net = (ProbabilisticNetwork) io.load(new File("bayes.net"));
-		
+		System.out.println(net);
 		MainFrame mf=MainFrame.getInstance();
 		mf.setVisible(true);
 	}
