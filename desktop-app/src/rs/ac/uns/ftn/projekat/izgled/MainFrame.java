@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.IOException;
 import java.text.DateFormat;
 
 import java.text.SimpleDateFormat;
@@ -26,6 +27,9 @@ import javax.swing.border.BevelBorder;
 import rs.ac.uns.ftn.projekat.dialogs.AddAttackDialog;
 import rs.ac.uns.ftn.projekat.dialogs.BayesDialog;
 import rs.ac.uns.ftn.projekat.dialogs.Fuzzy;
+import unbbayes.io.BaseIO;
+import unbbayes.io.NetIO;
+import unbbayes.io.exception.LoadException;
 
 
 
@@ -101,7 +105,12 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-						
+						try {
+							Bayes();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 				BayesDialog aad=new BayesDialog();
 				aad.setVisible(true);
 					return;
@@ -176,7 +185,10 @@ public class MainFrame extends JFrame {
 	
 		
 	}
-
+	public void Bayes() throws LoadException, IOException {
+		 BaseIO io = new NetIO();
+//		 ProbabilisticNetwork net = (ProbabilisticNetwork)io.load(new File("bayes.net"));
+	}	
 	
 }
 

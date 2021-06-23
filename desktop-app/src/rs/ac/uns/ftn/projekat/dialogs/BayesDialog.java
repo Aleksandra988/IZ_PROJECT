@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.io.IOException;
+
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -13,6 +15,11 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+
+import unbbayes.io.BaseIO;
+import unbbayes.io.NetIO;
+import unbbayes.io.exception.LoadException;
+
 import javax.swing.JRadioButton;
 
 public class BayesDialog extends JDialog{
@@ -338,4 +345,10 @@ public class BayesDialog extends JDialog{
 		JButton btn1 = new JButton("Find");
 		box.add(btn1);
 		
-}}
+}
+	public void Bayes() throws LoadException, IOException {
+		 BaseIO io = new NetIO();
+//		 ProbabilisticNetwork net = (ProbabilisticNetwork)io.load(new File("bayes.net"));
+	}	
+
+}
