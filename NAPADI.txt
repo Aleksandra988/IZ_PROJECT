@@ -5,274 +5,274 @@ na:Id   a       na:Identification ;
         na:id   na:attack1 , na:attack2 , na:attack3 , na:attack4 , na:attack5 , na:attack6 , na:attack7 , na:attack8 , na:attack9 , na:attack10 , na:attack11 , na:attack12 , na:attack13 , na:attack14 , na:attack15 , na:attack16 , na:attack17 , na:attack18 , na:attack19 , na:attack20 , na:attack21 , na:attack22 , na:attack23 , na:attack24 , na:attack25 , na:attack26 , na:attack27 , na:attack28 , na:attack29 , na:attack30 , na:attack31 , na:attack32 , na:attack33 , na:attack34 .
 
 na:attack1 a                na:Attack ;
-        na:name             "Excavation"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Interacting_with_the_system"^^xsd:string ;
-        na:mitigations      "Response_output_for_functional_use;Remove_sensitive_information"^^xsd:string ;
-        na:weaknesses       "Exposure_of_sensitive_information"^^xsd:string .
+        na:name             "Excavation" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Interacting_with_the_system" ;
+        na:mitigations      "Response_output_for_functional_use;Remove_sensitive_information" ;
+        na:weaknesses       "Exposure_of_sensitive_information" .
 
 na:attack2 a                na:Attack ;
-        na:name             "Collect_data_from_common_resource_locations"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Files_located_at_a_specific_location"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Files_accessible_to_external_parties;Improper_zeroization;Exposure_of_sensitive _system_information;Improper_management_of_sensitive_trac_ data"^^xsd:string .
+        na:name             "Collect_data_from_common_resource_locations" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Files_located_at_a_specific_location" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Files_accessible_to_external_parties;Improper_zeroization;Exposure_of_sensitive _system_information;Improper_management_of_sensitive_trac_ data" .
 
 na:attack3 a                na:Attack ;
-        na:name             "Query_system_for_information"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Authorized_access_not_strictly_required"^^xsd:string ;
-        na:mitigations      "Code_book_for_error_messages"^^xsd:string ;
-        na:weaknesses       "Sensitive_information"^^xsd:string .
+        na:name             "Query_system_for_information" ;
+        na:likelihood       "High" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Authorized_access_not_strictly_required" ;
+        na:mitigations      "Code_book_for_error_messages" ;
+        na:weaknesses       "Sensitive_information" .
 
 na:attack4 a                na:Attack ;
-        na:name             "Directory_indexing"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Misconfigured_target;Control_the_path;Improperly_configure_an_ACL;Old_server_version"^^xsd:string ;
-        na:mitigations      "Blank index.html;Apach_web_server;Suppressing_error_messages"^^xsd:string ;
-        na:weaknesses       "Improper_protection_of_alternate_path;Direct_request;Low_authentication;Improper_authorization,incorrect permission assignment,incorrect default permissions,protection mechanism failure"^^xsd:string .
+        na:name             "Directory_indexing" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Misconfigured_target;Control_the_path;Improperly_configure_an_ACL;Old_server_version" ;
+        na:mitigations      "Blank index.html;Apach_web_server;Suppressing_error_messages" ;
+        na:weaknesses       "Improper_protection_of_alternate_path;Direct_request;Low_authentication;Improper_authorization,incorrect permission assignment,incorrect default permissions,protection mechanism failure" .
 
 na:attack5 a                na:Attack ;
-        na:name             "Fuzzing_for_application_mapping"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Target_application_fail_to_sanitize_incoming_messages_before_processing"^^xsd:string ;
-        na:mitigations      "Code_book_for_error_messages"^^xsd:string ;
-        na:weaknesses       "Sensitive_information"^^xsd:string .
+        na:name             "Fuzzing_for_application_mapping" ;
+        na:likelihood       "High" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Target_application_fail_to_sanitize_incoming_messages_before_processing" ;
+        na:mitigations      "Code_book_for_error_messages" ;
+        na:weaknesses       "Sensitive_information" .
 
 na:attack6 a                na:Attack ;
-        na:name             "Fuzzing_for_garnering_other_adjacent_user/sensitive_data"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "No_query_check"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Improper_input_validation"^^xsd:string .
+        na:name             "Fuzzing_for_garnering_other_adjacent_user/sensitive_data" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "No_query_check" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper_input_validation" .
 
 na:attack7 a                na:Attack ;
-        na:name             "Cross_domain_search_timing"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Java_Scripts_enabled_in_browser;Active_session_with_place_of_attack;Not_protect_search_functionality"^^xsd:string ;
-        na:mitigations      "Request_forgery_protection"^^xsd:string ;
-        na:weaknesses       "Covert_timing_channel;Cross_site_request_forgery;Observable_timing_discrepancy"^^xsd:string .
+        na:name             "Cross_domain_search_timing" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Java_Scripts_enabled_in_browser;Active_session_with_place_of_attack;Not_protect_search_functionality" ;
+        na:mitigations      "Request_forgery_protection" ;
+        na:weaknesses       "Covert_timing_channel;Cross_site_request_forgery;Observable_timing_discrepancy" .
 
 na:attack8 a                na:Attack ;
-        na:name             "WSDL_scanning"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "High"^^xsd:string ;
-        na:prerequisites    "WSDL_is_not_protected"^^xsd:string ;
-        na:mitigations      "Protect_WSDL_file;Pay_attention_to_the_function_naming_convention"^^xsd:string ;
-        na:weaknesses       "Insertion_of_sensitive_information_into_externally_accessible_file"^^xsd:string .
+        na:name             "WSDL_scanning" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "WSDL_is_not_protected" ;
+        na:mitigations      "Protect_WSDL_file;Pay_attention_to_the_function_naming_convention" ;
+        na:weaknesses       "Insertion_of_sensitive_information_into_externally_accessible_file" .
 
 na:attack9 a                na:Attack ;
-        na:name             "Pull_data_from_system_resources"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:execution_flow   ""^^xsd:string ;
-        na:prerequisites    ""^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Improper_authorization;Improper_zeroization;Exposure_of_sensitive _system_information;Improper_management_of_sensitive_trace_ data"^^xsd:string .
+        na:name             "Pull_data_from_system_resources" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:execution_flow   "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper_authorization;Improper_zeroization;Exposure_of_sensitive _system_information;Improper_management_of_sensitive_trace_ data" .
 
 na:attack10 a                na:Attack ;
-        na:name             "Probe_application_memory"^^xsd:string ;
-        na:likelihood       "Low"^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Sensitive_information"^^xsd:string ;
-        na:mitigations      "Delete_data_to_render_it_irrecoverable;Deletion_of_data_should_be_completed_promptly"^^xsd:string ;
-        na:weaknesses       "Improper_access_control;Improper_senzitive_information"^^xsd:string .
+        na:name             "Probe_application_memory" ;
+        na:likelihood       "Low" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Sensitive_information" ;
+        na:mitigations      "Delete_data_to_render_it_irrecoverable;Deletion_of_data_should_be_completed_promptly" ;
+        na:weaknesses       "Improper_access_control;Improper_senzitive_information" .
 
 na:attack11 a                na:Attack ;
-        na:name             "Reverse_engineering"^^xsd:string ;
-        na:likelihood       "Low"^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Access_to__resources_and_information"^^xsd:string ;
-        na:mitigations      "Employ_code_obfuscation_techniques"^^xsd:string ;
-        na:weaknesses       ""^^xsd:string .
+        na:name             "Reverse_engineering" ;
+        na:likelihood       "Low" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Access_to__resources_and_information" ;
+        na:mitigations      "Employ_code_obfuscation_techniques" ;
+        na:weaknesses       "None" .
 
 na:attack12 a                na:Attack ;
-        na:name             "White_box_reverse_engineering"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Direct_access_to_software"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Improper_management_of_sensitive_trace_data"^^xsd:string .
+        na:name             "White_box_reverse_engineering" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Direct_access_to_software" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper_management_of_sensitive_trace_data" .
 
 na:attack13 a                na:Attack ;
-        na:name             "Lifting_sensitive_data_embedded_in_cache"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Target_application_must_store_sensitive_information_in_a_cache"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Use_of_cache_containing_sensitive_information;Missing_encryption_of_sensitive_data;Improper_zeroization;Exposure_of_sensitive_system_information"^^xsd:string .
+        na:name             "Lifting_sensitive_data_embedded_in_cache" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Target_application_must_store_sensitive_information_in_a_cache" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Use_of_cache_containing_sensitive_information;Missing_encryption_of_sensitive_data;Improper_zeroization;Exposure_of_sensitive_system_information" .
 
 na:attack14 a                na:Attack ;
-        na:name             "Retrieve_embedded_sensitive_data"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Very_high"^^xsd:string ;
-        na:prerequisites    "Unprotected_information;Presented_valuable_date"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Missing_encryption_of_sensitive_data;Improper_zeroization;Exposure_of_sensitive_system_information;Missing_protection_against_hardware_reverse_engineering"^^xsd:string .
+        na:name             "Retrieve_embedded_sensitive_data" ;
+        na:likelihood       "High" ;
+        na:severity         "Very_high" ;
+        na:prerequisites    "Unprotected_information;Presented_valuable_date" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Missing_encryption_of_sensitive_data;Improper_zeroization;Exposure_of_sensitive_system_information;Missing_protection_against_hardware_reverse_engineering" .
 
 na:attack15 a                na:Attack ;
-        na:name             "Black_box_reverse_engineering"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    ""^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Observable_discrepancy"^^xsd:string .
+        na:name             "Black_box_reverse_engineering" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Observable_discrepancy" .
 
 na:attack16 a                na:Attack ;
-        na:name             "Analysis_of_packet_timing_and_sizes"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Use_of_untrusted_communication_paths"^^xsd:string ;
-        na:mitigations      "Distort_packet_sizes_and_timing_at_VPN_layer"^^xsd:string ;
-        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data;Poor_data_encryption"^^xsd:string .
+        na:name             "Analysis_of_packet_timing_and_sizes" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Use_of_untrusted_communication_paths" ;
+        na:mitigations      "Distort_packet_sizes_and_timing_at_VPN_layer" ;
+        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data;Poor_data_encryption" .
 
 na:attack17 a                na:Attack ;
-        na:name             "Electromagnetic_side_channel_attack"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Proximal_access_to_the_device"^^xsd:string ;
-        na:mitigations      "Side_channel_resistant_implementations_of_all_crypto_algorithms;Strong_physical_security_of_all_devices_with_secret_key_information"^^xsd:string ;
-        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data"^^xsd:string .
+        na:name             "Electromagnetic_side_channel_attack" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Proximal_access_to_the_device" ;
+        na:mitigations      "Side_channel_resistant_implementations_of_all_crypto_algorithms;Strong_physical_security_of_all_devices_with_secret_key_information" ;
+        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data" .
 
 na:attack18 a                na:Attack ;
-        na:name             "Compromising_emanations_attack"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Proximal_access_to_the_device"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data"^^xsd:string .
+        na:name             "Compromising_emanations_attack" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Proximal_access_to_the_device" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Insertion_of_sensitive_information_into_sent_data" .
 
 na:attack19 a                na:Attack ;
-        na:name             "Protocol_analysis"^^xsd:string ;
-        na:likelihood       "Low"^^xsd:string ;
-        na:severity         "Low"^^xsd:string ;
-        na:prerequisites    "Access_to_a_binary_executable;Ability_to_observe_and_interact_with_a_communication_channel"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Inadequate_encryption_strength"^^xsd:string .
+        na:name             "Protocol_analysis" ;
+        na:likelihood       "Low" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Access_to_a_binary_executable;Ability_to_observe_and_interact_with_a_communication_channel" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Inadequate_encryption_strength" .
 
 na:attack20 a                na:Attack ;
-        na:name             "Cryptanalysis"^^xsd:string ;
-        na:likelihood       "Low"^^xsd:string ;
-        na:severity         "Very_high"^^xsd:string ;
-        na:prerequisites    "Target_software_utilizes_some_sort_of_cryptographic_algorithm;Attacker_must_know_encryption_algorithm"^^xsd:string ;
-        na:mitigations      "Use_proven_cryptographic_algorithms;Ensure_that_the_algorithms_are_used_properly"^^xsd:string ;
-        na:weaknesses       "Use_of_a_broken_or_risky_cryptographic_algorithm;Use_of_a_risky_cryptographic_primitive;Use_of_predictable_algorithm_in_random_number_generator"^^xsd:string .
+        na:name             "Cryptanalysis" ;
+        na:likelihood       "Low" ;
+        na:severity         "Very_high" ;
+        na:prerequisites    "Target_software_utilizes_some_sort_of_cryptographic_algorithm;Attacker_must_know_encryption_algorithm" ;
+        na:mitigations      "Use_proven_cryptographic_algorithms;Ensure_that_the_algorithms_are_used_properly" ;
+        na:weaknesses       "Use_of_a_broken_or_risky_cryptographic_algorithm;Use_of_a_risky_cryptographic_primitive;Use_of_predictable_algorithm_in_random_number_generator" .
 
 na:attack21 a                na:Attack ;
-        na:name             "Authentication_abuse"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "An_authentication_mechanism_or_subsystem_implementing_some_form_of_authentication"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Improper_authentication;Improper_access_to_sensitive_information_using_debug"^^xsd:string .
+        na:name             "Authentication_abuse" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "An_authentication_mechanism_or_subsystem_implementing_some_form_of_authentication" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper_authentication;Improper_access_to_sensitive_information_using_debug" .
 
 na:attack22 a                na:Attack ;
-        na:name             "Privilege_abuse"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Very_high"^^xsd:string ;
-        na:prerequisites    "Sensitive_information_remains_accessible_to_less_trusted_users;The_adversary_must_have_access_to_the_target"^^xsd:string ;
-        na:mitigations      "Configure_account_privileges"^^xsd:string ;
-        na:weaknesses       "Improper_privilege_management;Incorrect_permission_assignment_for_critical_resource;Missing_security_checks_in_fabric_bridge"^^xsd:string .
+        na:name             "Privilege_abuse" ;
+        na:likelihood       "High" ;
+        na:severity         "Very_high" ;
+        na:prerequisites    "Sensitive_information_remains_accessible_to_less_trusted_users;The_adversary_must_have_access_to_the_target" ;
+        na:mitigations      "Configure_account_privileges" ;
+        na:weaknesses       "Improper_privilege_management;Incorrect_permission_assignment_for_critical_resource;Missing_security_checks_in_fabric_bridge" .
 
 na:attack23 a                na:Attack ;
-        na:name             "Accessing_functionality_not_properly_constrained_by_acls"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "High"^^xsd:string ;
-        na:prerequisites    "Application_is_navigable;Various_resources_and_individual_URLs_is_discoverable_by_the_attacker"^^xsd:string ;
-        na:mitigations      "Administrator_must_mark_every_non_exposed_resource;Default_security_setting"^^xsd:string ;
-        na:weaknesses       "Incorrect_permissions;Improper_authorization;Protection_mechanism_failure;Improper_access_to_sensitive_information;Improper_access_control"^^xsd:string .
+        na:name             "Accessing_functionality_not_properly_constrained_by_acls" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "Application_is_navigable;Various_resources_and_individual_URLs_is_discoverable_by_the_attacker" ;
+        na:mitigations      "Administrator_must_mark_every_non_exposed_resource;Default_security_setting" ;
+        na:weaknesses       "Incorrect_permissions;Improper_authorization;Protection_mechanism_failure;Improper_access_to_sensitive_information;Improper_access_control" .
 
 na:attack24 a                na:Attack ;
-        na:name             "Using_malicious_files"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Very_high"^^xsd:string ;
-        na:prerequisites    "Allowing_attacker_to_directly_access_executable_files;Access_control_system_incorrectly_configured"^^xsd:string ;
-        na:mitigations      "Enforce_principle_of_least_privilege;Run_server_interfaces_with_a_non_root_account;Pen_testing_and_vulnerability_scanning"^^xsd:string ;
-        na:weaknesses       "Incorrect_permissions;Least_privilege_violation;Improper_link_resolution;Improper_ownership_management"^^xsd:string .
+        na:name             "Using_malicious_files" ;
+        na:likelihood       "High" ;
+        na:severity         "Very_high" ;
+        na:prerequisites    "Allowing_attacker_to_directly_access_executable_files;Access_control_system_incorrectly_configured" ;
+        na:mitigations      "Enforce_principle_of_least_privilege;Run_server_interfaces_with_a_non_root_account;Pen_testing_and_vulnerability_scanning" ;
+        na:weaknesses       "Incorrect_permissions;Least_privilege_violation;Improper_link_resolution;Improper_ownership_management" .
 
 na:attack25 a                na:Attack ;
-        na:name             "Create_files_with_the_same_name_as_files_protected_with_a_higher_classification"^^xsd:string ;
-        na:likelihood       "Very_high"^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:prerequisites    "Target_application_must_include_external_files"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Use_of_incorrectly_resolved_name_or_reference"^^xsd:string .
+        na:name             "Create_files_with_the_same_name_as_files_protected_with_a_higher_classification" ;
+        na:likelihood       "Very_high" ;
+        na:severity         "None" ;
+        na:prerequisites    "Target_application_must_include_external_files" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Use_of_incorrectly_resolved_name_or_reference" .
 
 na:attack26 a                na:Attack ;
-        na:name             "Force_use_of_corrupted_files"^^xsd:string ;
-        na:likelihood       "Medium"^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:prerequisites    "Targeted_application_must_utilize_a_configuration_file;Attacker_must_be_able_to_force_the_re_reading_of_the_corrupted_file"^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Inclusion_of_functionality_from_untrusted_control_sphere"^^xsd:string .
+        na:name             "Force_use_of_corrupted_files" ;
+        na:likelihood       "Medium" ;
+        na:severity         "None" ;
+        na:prerequisites    "Targeted_application_must_utilize_a_configuration_file;Attacker_must_be_able_to_force_the_re_reading_of_the_corrupted_file" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Inclusion_of_functionality_from_untrusted_control_sphere" .
 
 na:attack27 a                na:Attack ;
-        na:name             "Modify_shared_file"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:prerequisites    ""^^xsd:string ;
-        na:mitigations      "Disallow_shared_content;Protect_shared_folders;Use_utilities_that_mitigate_exploitation;Mitigation_experience_toolkit_to_prevent_exploits "^^xsd:string ;
-        na:weaknesses       "Improper_access_control"^^xsd:string .
+        na:name             "Modify_shared_file" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "Disallow_shared_content;Protect_shared_folders;Use_utilities_that_mitigate_exploitation;Mitigation_experience_toolkit_to_prevent_exploits " ;
+        na:weaknesses       "Improper_access_control" .
 
 na:attack28 a                na:Attack ;
-        na:name             "Add_malicious_file_to_shared_webroot"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:prerequisites    ""^^xsd:string ;
-        na:mitigations      "Ensure_appropriate_permissions;Disallow_remote_access_to_the_web_root;Disable_execution;Ensure_permissions_of_the_web_server_process"^^xsd:string ;
-        na:weaknesses       "Improper_access_control"^^xsd:string .
+        na:name             "Add_malicious_file_to_shared_webroot" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "Ensure_appropriate_permissions;Disallow_remote_access_to_the_web_root;Disable_execution;Ensure_permissions_of_the_web_server_process" ;
+        na:weaknesses       "Improper_access_control" .
 
 na:attack29 a                na:Attack ;
-        na:name             "Replace_binaries"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "High"^^xsd:string ;
-        na:prerequisites    "Placing_the_malicious_binary_on_the_target_machine"^^xsd:string ;
-        na:mitigations      "Binaries_have_the_correct_file_permissions;Set_operating_system_policies;Use_auditing_tools"^^xsd:string ;
-        na:weaknesses       "Incorrect_permissions"^^xsd:string .
+        na:name             "Replace_binaries" ;
+        na:likelihood       "None" ;
+        na:severity         "High" ;
+        na:prerequisites    "Placing_the_malicious_binary_on_the_target_machine" ;
+        na:mitigations      "Binaries_have_the_correct_file_permissions;Set_operating_system_policies;Use_auditing_tools" ;
+        na:weaknesses       "Incorrect_permissions" .
 
 na:attack30 a                na:Attack ;
-        na:name             "Upload_a_web_shell_to_a_web_server"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         "High"^^xsd:string ;
-        na:prerequisites    "Web_server_must_be_susceptible_to_web_application_exploits_for_uploading_a_shell_file"^^xsd:string ;
-        na:mitigations      "Web_servers_must_be_up_to_date;File_permissions_are_set_to_the_least_privilege_settings;Directories_with_file_contents_are_allowed_on_the_web"^^xsd:string ;
-        na:weaknesses       "Improper_authentication;Command_shell_in_externally_accessible_directory"^^xsd:string .
+        na:name             "Upload_a_web_shell_to_a_web_server" ;
+        na:likelihood       "None" ;
+        na:severity         "High" ;
+        na:prerequisites    "Web_server_must_be_susceptible_to_web_application_exploits_for_uploading_a_shell_file" ;
+        na:mitigations      "Web_servers_must_be_up_to_date;File_permissions_are_set_to_the_least_privilege_settings;Directories_with_file_contents_are_allowed_on_the_web" ;
+        na:weaknesses       "Improper_authentication;Command_shell_in_externally_accessible_directory" .
 
 na:attack31 a                na:Attack ;
-        na:name             "Exploiting_incorrectly_configured_access_control_security_levels"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "Medium"^^xsd:string ;
-        na:prerequisites    "Target_must_apply_access_controls_but_incorrectly_configure_them"^^xsd:string ;
-        na:mitigations      "Configure_the_access_control_correctly"^^xsd:string ;
-        na:weaknesses       "Incorrect_permissions;Insufficient_granularity_of_address_registers;Improper_access_to_sensitive_information;Improper_access_control"^^xsd:string .
+        na:name             "Exploiting_incorrectly_configured_access_control_security_levels" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Target_must_apply_access_controls_but_incorrectly_configure_them" ;
+        na:mitigations      "Configure_the_access_control_correctly" ;
+        na:weaknesses       "Incorrect_permissions;Insufficient_granularity_of_address_registers;Improper_access_to_sensitive_information;Improper_access_control" .
 
 na:attack32 a                na:Attack ;
-        na:name             "Privilege_escalation"^^xsd:string ;
-        na:likelihood       ""^^xsd:string ;
-        na:severity         ""^^xsd:string ;
-        na:prerequisites    ""^^xsd:string ;
-        na:mitigations      ""^^xsd:string ;
-        na:weaknesses       "Improper_privilege_management;Improper_translation_of_security_attributes_by_fabric_bridge"^^xsd:string .
+        na:name             "Privilege_escalation" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper_privilege_management;Improper_translation_of_security_attributes_by_fabric_bridge" .
 
 na:attack33 a                na:Attack ;
-        na:name             "Subvert_code_signing_facilities"^^xsd:string ;
-        na:likelihood       "Low"^^xsd:string ;
-        na:severity         "Very_high"^^xsd:string ;
-        na:prerequisites    "A_framework_based_language_that_supports_code_signing;Deployed code;Placing_code_in_the_victim_container"^^xsd:string ;
-        na:mitigations      "Developers_must_never_roll_out_cryptography;Avoid_reliance_on_user_controllable_flags"^^xsd:string ;
-        na:weaknesses       "Missing_cryptographic_step;Reversible_one_way_hash;Missing_immutable_root_of_trust_in_hardware"^^xsd:string .
+        na:name             "Subvert_code_signing_facilities" ;
+        na:likelihood       "Low" ;
+        na:severity         "Very_high" ;
+        na:prerequisites    "A_framework_based_language_that_supports_code_signing;Deployed code;Placing_code_in_the_victim_container" ;
+        na:mitigations      "Developers_must_never_roll_out_cryptography;Avoid_reliance_on_user_controllable_flags" ;
+        na:weaknesses       "Missing_cryptographic_step;Reversible_one_way_hash;Missing_immutable_root_of_trust_in_hardware" .
 
 na:attack34 a                na:Attack ;
-        na:name             "Use_of_known_domain_credentials"^^xsd:string ;
-        na:likelihood       "High"^^xsd:string ;
-        na:severity         "High"^^xsd:string ;
-        na:prerequisites    "Using_one_factor_password_based_authentication_sso;Not_having_a_sound_password_policy;Not_implementing_an_effective_password_mechanism"^^xsd:string ;
-        na:mitigations      "Leverage_multi_factor_authentication;Create_a_strong_password_policy;Not_reusing_username/password_combinations_for_multiple_systems"^^xsd:string ;
-        na:weaknesses       "Insufficiently_protected_credentials;Improper_restriction_of_excessive_authentication_attempts;Use_of_single_factor_authentication"^^xsd:string .
+        na:name             "Use_of_known_domain_credentials" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "Using_one_factor_password_based_authentication_sso;Not_having_a_sound_password_policy;Not_implementing_an_effective_password_mechanism" ;
+        na:mitigations      "Leverage_multi_factor_authentication;Create_a_strong_password_policy;Not_reusing_username/password_combinations_for_multiple_systems" ;
+        na:weaknesses       "Insufficiently_protected_credentials;Improper_restriction_of_excessive_authentication_attempts;Use_of_single_factor_authentication" .
