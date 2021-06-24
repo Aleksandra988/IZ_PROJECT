@@ -1,0 +1,277 @@
+@prefix na:    <https://dbpedia.org/fct/> .
+@prefix xsd:   <http://w3.org/2001/XMLSchema#> .
+
+na:Id   a       na:Identification ;
+        na:id   na:attack1 , na:attack2 , na:attack3 , na:attack4 , na:attack5 , na:attack6 , na:attack7 , na:attack8 , na:attack9 , na:attack10 , na:attack11 , na:attack12 , na:attack13 , na:attack14 , na:attack15 , na:attack16 , na:attack17 , na:attack18 , na:attack19 , na:attack20 , na:attack21 , na:attack22 , na:attack23 , na:attack24 , na:attack25 , na:attack26 , na:attack27 , na:attack28 , na:attack29 , na:attack30 , na:attack31 , na:attack32 , na:attack33 , na:attack34 .
+
+na:attack1 a                na:Attack ;
+        na:name             "Excavation" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Interacting with the system" ;
+        na:mitigations      "Response output for functional use;Remove sensitive information" ;
+        na:weaknesses       "Exposure of sensitive information" .
+
+na:attack2 a                na:Attack ;
+        na:name             "Collect data from common resource locations" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Files located at a specific location" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Files accessible to external parties;Improper zeroization;Exposure of sensitive system information;Improper management of sensitive trace data" .
+
+na:attack3 a                na:Attack ;
+        na:name             "Query system for information" ;
+        na:likelihood       "High" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Authorized access not strictly required" ;
+        na:mitigations      "Code book for error messages" ;
+        na:weaknesses       "Sensitive information" .
+
+na:attack4 a                na:Attack ;
+        na:name             "Directory indexing" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Misconfigured target;Control the path;Improperly configure an ACL;Old server version" ;
+        na:mitigations      "Blank index.html;Apach web server;Suppressing error messages" ;
+        na:weaknesses       "Improper protection of alternate path;Direct request;Low authentication;Improper authorization;Incorrect permission assignment;Incorrect default permissions;Protection mechanism failure" .
+
+na:attack5 a                na:Attack ;
+        na:name             "Fuzzing for application mapping" ;
+        na:likelihood       "High" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Target application fail to sanitize incoming messages before processing" ;
+        na:mitigations      "Code book for error messages" ;
+        na:weaknesses       "Sensitive information" .
+
+na:attack6 a                na:Attack ;
+        na:name             "Fuzzing for garnering other adjacent user/sensitive data" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "No query check" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper input validation" .
+
+na:attack7 a                na:Attack ;
+        na:name             "Cross domain search timing" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Java Scripts enabled in browser;Active session with place of attack;Not protect search functionality" ;
+        na:mitigations      "Request forgery protection" ;
+        na:weaknesses       "Covert timing channel;Cross site request forgery;Observable timing discrepancy" .
+
+na:attack8 a                na:Attack ;
+        na:name             "WSDL scanning" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "WSDL is not protected" ;
+        na:mitigations      "Protect WSDL file;Pay attention to the function naming convention" ;
+        na:weaknesses       "Insertion of sensitive information into externally accessible file" .
+
+na:attack9 a                na:Attack ;
+        na:name             "Pull data from system resources" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper authorization;Improper zeroization;Exposure of sensitive system information;Improper management of sensitive trace data" .
+
+na:attack10 a                na:Attack ;
+        na:name             "Probe application memory" ;
+        na:likelihood       "Low" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Sensitive information" ;
+        na:mitigations      "Delete data to render it irrecoverable;Deletion of data should be completed promptly" ;
+        na:weaknesses       "Improper access control;Improper sensitive information" .
+
+na:attack11 a                na:Attack ;
+        na:name             "Reverse engineering" ;
+        na:likelihood       "Low" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Access to resources and information" ;
+        na:mitigations      "Employ code obfuscation techniques" ;
+        na:weaknesses       "None" .
+
+na:attack12 a                na:Attack ;
+        na:name             "White box reverse engineering" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Direct access to software" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper management of sensitive trace data" .
+
+na:attack13 a                na:Attack ;
+        na:name             "Lifting sensitive data embedded in cache" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Target application must store sensitive information in a cache" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Use of cache containing sensitive information;Missing encryption of sensitive data;Improper zeroization;Exposure of sensitive system information" .
+
+na:attack14 a                na:Attack ;
+        na:name             "Retrieve embedded sensitive data" ;
+        na:likelihood       "High" ;
+        na:severity         "Very high" ;
+        na:prerequisites    "Unprotected information;Presented valuable date" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Missing encryption of sensitive data;Improper zeroization;Exposure of sensitive system information;Missing protection against hardware reverse engineering" .
+
+na:attack15 a                na:Attack ;
+        na:name             "Black box reverse engineering" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Observable discrepancy" .
+
+na:attack16 a                na:Attack ;
+        na:name             "Analysis of packet timing and sizes" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Use of untrusted communication paths" ;
+        na:mitigations      "Distort packet sizes and timing at VPN layer" ;
+        na:weaknesses       "Insertion of sensitive information into sent data;Poor data encryption" .
+
+na:attack17 a                na:Attack ;
+        na:name             "Electromagnetic side channel attack" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Proximal access to the device" ;
+        na:mitigations      "Side channel resistant implementations of all crypto algorithms;Strong physical security of all devices with secret key information" ;
+        na:weaknesses       "Insertion of sensitive information into sent data" .
+
+na:attack18 a                na:Attack ;
+        na:name             "Compromising emanations attack" ;
+        na:likelihood       "None" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Proximal access to the device" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Insertion of sensitive information into sent data" .
+
+na:attack19 a                na:Attack ;
+        na:name             "Protocol analysis" ;
+        na:likelihood       "Low" ;
+        na:severity         "Low" ;
+        na:prerequisites    "Access to a binary executable;Ability to observe and interact with a communication channel" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Inadequate encryption strength" .
+
+na:attack20 a                na:Attack ;
+        na:name             "Cryptanalysis" ;
+        na:likelihood       "Low" ;
+        na:severity         "Very high" ;
+        na:prerequisites    "Target software utilizes some sort of cryptographic algorithm;Attacker must know encryption algorithm" ;
+        na:mitigations      "Use proven cryptographic algorithms;Ensure that the algorithms are used properly" ;
+        na:weaknesses       "Use of a broken or risky cryptographic algorithm;Use of a risky cryptographic primitive;Use of predictable algorithm in random number generator" .
+
+na:attack21 a                na:Attack ;
+        na:name             "Authentication abuse" ;
+        na:likelihood       "None" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "An authentication mechanism or subsystem implementing some form of authentication" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper authentication;Improper access to sensitive information using debug" .
+
+na:attack22 a                na:Attack ;
+        na:name             "Privilege abuse" ;
+        na:likelihood       "High" ;
+        na:severity         "Very high" ;
+        na:prerequisites    "Sensitive information remains accessible to less trusted users;The adversary must have access to the target" ;
+        na:mitigations      "Configure account privileges" ;
+        na:weaknesses       "Improper privilege management;Incorrect permission assignment for critical resource;Missing security checks in fabric bridge" .
+
+na:attack23 a                na:Attack ;
+        na:name             "Accessing functionality not properly constrained by acls" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "Application is navigable;Various resources and individual URLs is discoverable by the attacker" ;
+        na:mitigations      "Administrator must mark every non exposed resource;Default security setting" ;
+        na:weaknesses       "Incorrect permissions;Improper authorization;Protection mechanism failure;Improper access to sensitive information;Improper access control" .
+
+na:attack24 a                na:Attack ;
+        na:name             "Using malicious files" ;
+        na:likelihood       "High" ;
+        na:severity         "Very high" ;
+        na:prerequisites    "Allowing attacker to directly access executable files;Access control system incorrectly configured" ;
+        na:mitigations      "Enforce principle of least privilege;Run server interfaces with a non root account;Pen testing and vulnerability scanning" ;
+        na:weaknesses       "Incorrect permissions;Least privilege violation;Improper link resolution;Improper ownership management" .
+
+na:attack25 a                na:Attack ;
+        na:name             "Create files with the same name as files protected with a higher classification" ;
+        na:likelihood       "Very high" ;
+        na:severity         "None" ;
+        na:prerequisites    "Target application must include external files" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Use of incorrectly resolved name or reference" .
+
+na:attack26 a                na:Attack ;
+        na:name             "Force use of corrupted files" ;
+        na:likelihood       "Medium" ;
+        na:severity         "None" ;
+        na:prerequisites    "Targeted application must utilize a configuration file;Attacker must be able to force the re reading of the corrupted file" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Inclusion of functionality from untrusted control sphere" .
+
+na:attack27 a                na:Attack ;
+        na:name             "Modify shared file" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "Disallow shared content;Protect shared folders;Use utilities that mitigate exploitation;Mitigation experience toolkit to prevent exploits " ;
+        na:weaknesses       "Improper access control" .
+
+na:attack28 a                na:Attack ;
+        na:name             "Add malicious file to shared webroot" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "Ensure appropriate permissions;Disallow remote access to the web root;Disable execution;Ensure permissions of the web server process" ;
+        na:weaknesses       "Improper access control" .
+
+na:attack29 a                na:Attack ;
+        na:name             "Replace binaries" ;
+        na:likelihood       "None" ;
+        na:severity         "High" ;
+        na:prerequisites    "Placing the malicious binary on the target machine" ;
+        na:mitigations      "Binaries have the correct file permissions;Set operating system policies;Use auditing tools" ;
+        na:weaknesses       "Incorrect permissions" .
+
+na:attack30 a                na:Attack ;
+        na:name             "Upload a web shell to a web server" ;
+        na:likelihood       "None" ;
+        na:severity         "High" ;
+        na:prerequisites    "Web server must be susceptible to web application exploits for uploading a shell file" ;
+        na:mitigations      "Web servers must be up to date;File permissions are set to the least privilege settings;Directories with file contents are allowed on the web" ;
+        na:weaknesses       "Improper authentication;Command shell in externally accessible directory" .
+
+na:attack31 a                na:Attack ;
+        na:name             "Exploiting incorrectly configured access control security levels" ;
+        na:likelihood       "High" ;
+        na:severity         "Medium" ;
+        na:prerequisites    "Target must apply access controls but incorrectly configure them" ;
+        na:mitigations      "Configure the access control correctly" ;
+        na:weaknesses       "Incorrect permissions;Insufficient granularity of address registers;Improper access to sensitive information;Improper access control" .
+
+na:attack32 a                na:Attack ;
+        na:name             "Privilege escalation" ;
+        na:likelihood       "None" ;
+        na:severity         "None" ;
+        na:prerequisites    "None" ;
+        na:mitigations      "None" ;
+        na:weaknesses       "Improper privilege management;Improper translation of security attributes by fabric bridge" .
+
+na:attack33 a                na:Attack ;
+        na:name             "Subvert code signing facilities" ;
+        na:likelihood       "Low" ;
+        na:severity         "Very high" ;
+        na:prerequisites    "A framework based language that supports code signing;Deployed code;Placing code in the victim container" ;
+        na:mitigations      "Developers must never roll out cryptography;Avoid reliance on user controllable flags" ;
+        na:weaknesses       "Missing cryptographic step;Reversible one way hash;Missing immutable root of trust in hardware" .
+
+na:attack34 a                na:Attack ;
+        na:name             "Use of known domain credentials" ;
+        na:likelihood       "High" ;
+        na:severity         "High" ;
+        na:prerequisites    "Using one factor password based authentication sso;Not having a sound password policy;Not implementing an effective password mechanism" ;
+        na:mitigations      "Leverage multi factor authentication;Create a strong password policy;Not reusing username/password combinations for multiple systems" ;
+        na:weaknesses       "Insufficiently protected credentials;Improper restriction of excessive authentication attempts;Use of single factor authentication" .
