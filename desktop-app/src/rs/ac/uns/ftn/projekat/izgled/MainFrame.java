@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
 		Dimension screenSize = kit.getScreenSize();
 		int screenHeight = screenSize.height;
 		int screenWidth = screenSize.width;
-		setSize(screenWidth *1/3, screenHeight *1/3);
+		setSize(screenWidth *2/3, screenHeight *1/3);
 		setTitle("Software attacks");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,7 +94,7 @@ public class MainFrame extends JFrame {
 		panel.add(btn2);
 
 
-		JToggleButton btn3 = new JToggleButton("Fuzzy");
+		JToggleButton btn3 = new JToggleButton("Vulnerability risk assessment");
 		panel.add(btn3);
 
 		box.add(panel);
@@ -111,7 +111,10 @@ public class MainFrame extends JFrame {
 		panel1.add(bsearch);
 		box.add(panel1);
 		
-		
+		JLabel jl=new JLabel("Please enter full name of attack!");
+		jl.setForeground(Color.RED);
+		jl.setVisible(false);
+		box.add(jl);
 
 		JToggleButton btn4 = new JToggleButton("Case Base Reasoning");
 		panel.add(btn4);
@@ -147,12 +150,6 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-						try {
-							Bayes();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
 				BayesDialog aad;
 				try {
 					aad = new BayesDialog();
@@ -185,9 +182,16 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-						
+					
 					GetAttack ga=new GetAttack();
 					a=ga.GetAttackByName(search.getText());
+					
+					if(a.getName()==null) {
+						jl.setVisible(true);
+						return;
+					}
+					jl.setVisible(false);
+					
 					EditAttack ea=new EditAttack(a);
 					ea.setVisible(true);
 					return;
@@ -243,16 +247,6 @@ public class MainFrame extends JFrame {
 			}
 		});
 		
-		
-		
-		
-		
-	
-		
-	}
-	public void Bayes() throws LoadException, IOException {
-		 BaseIO io = new NetIO();
-//		 ProbabilisticNetwork net = (ProbabilisticNetwork)io.load(new File("bayes.net"));
 	}	
 	
 }

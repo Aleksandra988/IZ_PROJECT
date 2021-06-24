@@ -20,7 +20,7 @@ public class GetAttack {
 		String selectString = PREFIX + " SELECT * " + "WHERE {"
 				+ "	?attack a na:Attack;" + "           na:name ?name; "+ "           na:likelihood ?likelihood; "
 				+"           na:severity ?severity; "+"           na:prerequisites ?prerequisites; "
-				+"           na:mitigations ?mitigations; "+"           na:weaknesses ?weaknesses; "+ ". FILTER regex(?name, '"+name+"') }";
+				+"           na:mitigations ?mitigations; "+"           na:weaknesses ?weaknesses; "+ ". FILTER (?name= '"+name+"') }";
 		Query query = QueryFactory.create(selectString);
 		try {
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERY_URL, query);
