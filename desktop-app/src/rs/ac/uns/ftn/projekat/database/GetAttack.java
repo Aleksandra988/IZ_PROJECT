@@ -8,7 +8,6 @@ import org.apache.jena.query.QuerySolution;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFactory;
 import org.apache.jena.query.ResultSetRewindable;
-import org.apache.jena.rdf.model.Literal;
 
 import rs.ac.uns.ftn.projekat.model.Attack;
 
@@ -16,12 +15,12 @@ public class GetAttack {
 	private static final String QUERY_URL = "http://localhost:3030/IZ_ZNANJA/sparql";
 	private static final String PREFIX = "PREFIX na: <https://dbpedia.org/fct/> PREFIX xsd: <http://w3.org/2001/XMLSchema#>";
 
-	public Attack GetAttackByNameAndId(String name, String id) {
-		Attack a=new Attack();
+	public Attack GetAttackByName(String name) {
+		Attack attack=new Attack();
 		String selectString = PREFIX + " SELECT * " + "WHERE {"
-				+ "	?attack a na:Attack;" + "           na:name ?name; FILTER (?name =\\"+name+"\\)"+ "           na:likelihood ?likelihood; "
+				+ "	?attack a na:Attack;" + "           na:name ?name; "+ "           na:likelihood ?likelihood; "
 				+"           na:severity ?severity; "+"           na:prerequisites ?prerequisites; "
-				+"           na:mitigations ?mitigations; "+"           na:weaknesses ?weaknesses; "+ ". }";
+				+"           na:mitigations ?mitigations; "+"           na:weaknesses ?weaknesses; "+ ". FILTER regex(?name, '"+name+"') }";
 		Query query = QueryFactory.create(selectString);
 		try {
 			QueryExecution qexec = QueryExecutionFactory.sparqlService(QUERY_URL, query);
@@ -32,18 +31,18 @@ public class GetAttack {
 			qexec.close();
 			while (resultSetRewindble.hasNext()) {
 				QuerySolution solution = resultSetRewindble.nextSolution();
-				a.setName(solution.getLiteral("name").getString());
-				a.setLikelihood(solution.getLiteral("likelihood").getString());
-				a.setSeverity(solution.getLiteral("severity").getString());
-				a.setMitigations(solution.getLiteral("mitigations").getString());
-				a.setWeaknesses(solution.getLiteral("weaknesses").getString());
-				a.setPrerequisites(solution.getLiteral("prerequisites").getString());
+				attack.setName(solution.getLiteral("name").getString());
+				attack.setLikelihood(solution.getLiteral("likelihood").getString());
+				attack.setSeverity(solution.getLiteral("severity").getString());
+				attack.setMitigations(solution.getLiteral("mitigations").getString());
+				attack.setWeaknesses(solution.getLiteral("weaknesses").getString());
+				attack.setPrerequisites(solution.getLiteral("prerequisites").getString());
 			}
 		}
 	    catch (Exception e) {
 		System.out.println("GRESKA SELECT NAREDBA ZA GET!");
 		e.printStackTrace();
 	    }
-		return a;
+		return attack;
 	}
 }

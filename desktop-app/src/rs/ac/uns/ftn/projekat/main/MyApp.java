@@ -16,6 +16,8 @@ import org.apache.jena.update.UpdateRequest;
 
 import unbbayes.prs.Node;
 import rs.ac.uns.ftn.projekat.connector.CsvConnector;
+import rs.ac.uns.ftn.projekat.database.GetAttack;
+import rs.ac.uns.ftn.projekat.database.UpdateAttack;
 import rs.ac.uns.ftn.projekat.dialogs.BayesDialog;
 import rs.ac.uns.ftn.projekat.izgled.MainFrame;
 import rs.ac.uns.ftn.projekat.model.Attack;
@@ -53,6 +55,7 @@ public class MyApp implements StandardCBRApplication{
 	NNConfig simConfig;  /** KNN configuration */
 	
 	public void configure() throws ExecutionException {
+		
 		_connector =  new CsvConnector();
 		
 		_caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
@@ -103,6 +106,7 @@ public class MyApp implements StandardCBRApplication{
 
 	public static void main(String[] args) throws LoadException, IOException {
 		StandardCBRApplication recommender = new MyApp();
+		
 		try {
 			recommender.configure();
 

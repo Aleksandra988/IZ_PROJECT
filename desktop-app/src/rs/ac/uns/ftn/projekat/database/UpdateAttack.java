@@ -11,23 +11,32 @@ public class UpdateAttack {
 	private static final String UPDATE_URL = "http://localhost:3030/IZ_ZNANJA/update";
 	private static final String PREFIX = "PREFIX na: <https://dbpedia.org/fct/> PREFIX xsd: <http://w3.org/2001/XMLSchema#>";
 
-	public void AddAttack(Attack attack,Attack updates) {
-		String insertString = PREFIX + " DELETE DATA FROM { ";
-	
-		insertString += " na:" + attack.getId() + " a na:Attack; ";
-		insertString += " na:name" + "\"" + attack.getName() + "\" ; ";
-		insertString += " na:likelihood" + " \"" + attack.getLikelihood() + "\" ; ";
-		insertString += " na:severity" + " \"" + attack.getSeverity() +"\" ; ";
-		insertString += " na:prerequisites" + "\"" + attack.getPrerequisites() +"\" ; ";
-		insertString += " na:mitigations" + "\"" + attack.getMitigations() +"\" ; ";
-		insertString += " na:weaknesses" + "\"" + attack.getMitigations() +"\" . }";
+	public void Update(Attack attack,Attack updates) {
+		String insertString = PREFIX + " DELETE{ ?attack  a                     na:Attack ;"
+								+"    		na:name               ?name ;"
+								+"             na:name               '"+ attack.getName()+"';"
+								+"             na:likelihood         '"+ attack.getLikelihood() +"';"
+								+"             na:severity           '"+ attack.getSeverity()+"';"
+								+"             na:prerequisites      '"+ attack.getPrerequisites() +"';"
+								+"             na:mitigations        '"+ attack.getMitigations()+"';"
+								+"             na:weaknesses         '"+ attack.getWeaknesses() +"'. }"
+								+"INSERT"
+								+"{?attack  a                     na:Attack ;"
+								+"             na:name               '"+ updates.getName()+"';"
+								+"             na:likelihood         '"+ updates.getLikelihood() +"';"
+								+"             na:severity           '"+ updates.getSeverity()+"';"
+								+"             na:prerequisites      '"+ updates.getPrerequisites() +"';"
+								+"             na:mitigations        '"+ updates.getMitigations()+"';"
+								+"             na:weaknesses         '"+ updates.getWeaknesses() +"'. }" 
+								+"WHERE"
+								+"{ ?attack  a                     na:Attack ;"
+								+"             na:name               ?name ."
+								+"FILTER regex(?name, '"+attack.getName()+"')"
+								+ "}";
 	
 		UpdateRequest updateRequest = UpdateFactory.create(insertString);
 		UpdateProcessor updateProcessor = UpdateExecutionFactory.createRemote(updateRequest, UPDATE_URL);
 		updateProcessor.execute();
-		
-		AtteckInsert ai=new AtteckInsert();
-		ai.AddAttack(updates);
 	}
 }
 

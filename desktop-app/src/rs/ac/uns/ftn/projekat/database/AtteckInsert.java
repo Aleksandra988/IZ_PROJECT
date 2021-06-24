@@ -14,7 +14,7 @@ public class AtteckInsert {
 	public void AddAttack(Attack attack) {
 		String insertString = PREFIX + " INSERT DATA { ";
 	
-		insertString += " na:" + "attack222" + " a na:Attack; ";
+		insertString += " na:" + attack.getId() + " a na:Attack; ";
 		insertString += " na:name" + "\"" + attack.getName() + "\" ; ";
 		insertString += " na:likelihood" + " \"" + attack.getLikelihood() + "\" ; ";
 		insertString += " na:severity" + " \"" + attack.getSeverity() +"\" ; ";
