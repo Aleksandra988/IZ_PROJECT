@@ -4,6 +4,7 @@ import ucm.gaia.jcolibri.cbrcore.Attribute;
 import ucm.gaia.jcolibri.cbrcore.CaseComponent;
 
 public class Attack  implements CaseComponent {
+	private String id;
 	private String name;
 	private String likelihood;
 	private String severity;
@@ -11,6 +12,12 @@ public class Attack  implements CaseComponent {
 	private String mitigations;
 	private String weaknesses;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
 		return "Attack [name=" + name + ", likelihood=" + likelihood + ", severity=" + severity + ", prerequisites="

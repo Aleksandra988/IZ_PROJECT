@@ -5,6 +5,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -15,6 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import rs.ac.uns.ftn.projekat.database.AtteckInsert;
+import rs.ac.uns.ftn.projekat.model.Attack;
+
 public class AddAttackDialog extends JDialog{
 	
 	/**
@@ -22,20 +28,12 @@ public class AddAttackDialog extends JDialog{
 	 */
 	private static final long serialVersionUID = 1L;
 
-		static JTextField txtIme = new JTextField();
-	static JTextField txtPrezime = new JTextField();
-	static JTextField txtDatumRodjenja = new JTextField();
-	static JTextField txtAdresaStanovanja = new JTextField();
-	static JTextField txtBrojTelefona= new JTextField();
-	static JTextField txtEmailAdresa=new JTextField();
-	static JTextField txtBrojIndexa = new JTextField();
-	static JTextField txtGodinaStudiranja = new JTextField();
-	static JTextField txtDatumUpisa = new JTextField();
-	static JTextField txtProsek = new JTextField();
-	static JComboBox<String> trengodstud=new JComboBox<String>();
-	static JRadioButton budzet=new JRadioButton("Budzet");
-	static JRadioButton samofinansiranje=new JRadioButton("Samofinansiranje");
-	
+	static JTextField txtName = new JTextField();
+	static JTextField txtPrerequisites = new JTextField();
+	static JTextField txtMitigations= new JTextField();
+	static JTextField txtWeaknesses=new JTextField();
+	static JComboBox<String> txtLikelihood=new JComboBox<String>();
+	static JComboBox<String> txtSeverity=new JComboBox<String>();
 	
 	
 
@@ -43,17 +41,24 @@ public class AddAttackDialog extends JDialog{
 
 		//layout
 		
-		txtIme.setPreferredSize(new Dimension(160,20));
-		txtPrezime.setPreferredSize(new Dimension(160,20));
-		txtDatumRodjenja.setPreferredSize(new Dimension(160,20));
-		txtAdresaStanovanja.setPreferredSize(new Dimension(160,20));
-		txtBrojTelefona.setPreferredSize(new Dimension(160,20));
-		txtBrojIndexa.setPreferredSize(new Dimension(160,20));
-		txtGodinaStudiranja.setPreferredSize(new Dimension(160,20));
-		txtEmailAdresa.setPreferredSize(new Dimension(160,20));
-		txtProsek.setPreferredSize(new Dimension(160,20));
-		txtDatumUpisa.setPreferredSize(new Dimension(160,20));
+		txtName.setPreferredSize(new Dimension(160,20));
+		txtLikelihood.setPreferredSize(new Dimension(160,20));
+		txtSeverity.setPreferredSize(new Dimension(160,20));
+		txtPrerequisites.setPreferredSize(new Dimension(160,20));
+		txtMitigations.setPreferredSize(new Dimension(160,20));
+		txtWeaknesses.setPreferredSize(new Dimension(160,20));
+
+		txtLikelihood.addItem("None");
+		txtLikelihood.addItem("Low");
+		txtLikelihood.addItem("Medium");
+		txtLikelihood.addItem("High");
+		txtLikelihood.addItem("Very high");
 		
+		txtSeverity.addItem("None");
+		txtSeverity.addItem("Low");
+		txtSeverity.addItem("Medium");
+		txtSeverity.addItem("High");
+		txtSeverity.addItem("Very high");
 		
 		setBackground(Color.GREEN);
 		setModal(true);
@@ -68,31 +73,23 @@ public class AddAttackDialog extends JDialog{
 		setLocationRelativeTo(null);
 		
 		
-		JLabel ime = new JLabel("Ime*");
-		JLabel prezime = new JLabel("Prezime*");
-		JLabel datum_rodjenja = new JLabel("Datum rodjenja*");
-		JLabel adresa_stanovanja = new JLabel("Adresa stanovanja*");
-		JLabel broj_telefona = new JLabel("Broj telefona*");
-		JLabel broj_indexa = new JLabel("Broj indeksa*");
-		JLabel trenutna_godina_studiranja = new JLabel("Trenutna godina studiranja*");
-		JLabel email = new JLabel("Email*");
-		JLabel prosek = new JLabel("Prosek*");
-		JLabel datum_upisa = new JLabel("Datum upisa*");
+		JLabel name = new JLabel("Name*");
+		JLabel likelihood = new JLabel("Likelihood");
+		JLabel severity = new JLabel("Severity");
+		JLabel prerequisites = new JLabel("Prerequisites");
+		JLabel mitigations = new JLabel("Mitigations");
+		JLabel weaknesses = new JLabel("Weaknesses");
 		
 		
 		
 		
 		
-		JPanel panelIme = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelPrezime = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelDatumRodjenja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelBrojIndexa = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelAdresaStanovanja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelBrojTelefona = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelTrenutnaGodinaStudiranja = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelEmail = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelProsek = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		JPanel panelDatumUpisa = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelN = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelL = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelS = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelP = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelM = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		JPanel panelW = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		
 		
 		
@@ -100,46 +97,51 @@ public class AddAttackDialog extends JDialog{
 		Box box=Box.createVerticalBox();
 		this.add(box,BorderLayout.CENTER);
 		
+		panelN.add(name);
+		panelN.add(txtName);
+		box.add(panelN);
 		
-		panelIme.add(ime);
-		panelIme.add(txtIme);
-		box.add(panelIme);
+		panelL.add(likelihood);
+		panelL.add(txtLikelihood);
+		box.add(panelL);
 		
-		panelPrezime.add(prezime);
-		panelPrezime.add(txtPrezime);
-		box.add(panelPrezime);
+		panelS.add(severity);
+		panelS.add(txtSeverity);
+		box.add(panelS);
 		
-		panelDatumRodjenja.add(datum_rodjenja);
-		panelDatumRodjenja.add(txtDatumRodjenja);
-		box.add(panelDatumRodjenja);
+		panelP.add(prerequisites);
+		panelP.add(txtPrerequisites);
+		box.add(panelP);
 		
-		panelEmail.add(email);
-		panelEmail.add(txtEmailAdresa);
-		box.add(panelEmail);
+		panelM.add(mitigations);
+		panelM.add(txtMitigations);
+		box.add(panelM);		
 		
-		panelDatumUpisa.add(datum_upisa);
-		panelDatumUpisa.add(txtDatumUpisa);
-		box.add(panelDatumUpisa);
+		panelW.add(weaknesses);
+		panelW.add(txtWeaknesses);
+		box.add(panelW);	
 		
-		panelProsek.add(prosek);
-		panelProsek.add(txtProsek);
-		box.add(panelProsek);
+		JButton add=new JButton("Add");
+		box.add(add);
 		
-		
-		
-		panelAdresaStanovanja.add(adresa_stanovanja);
-		panelAdresaStanovanja.add(txtAdresaStanovanja);
-		box.add(panelAdresaStanovanja);
-		
-		panelBrojTelefona.add(broj_telefona);
-		panelBrojTelefona.add(txtBrojTelefona);
-		box.add(panelBrojTelefona);
-		
-		
-		panelBrojIndexa.add(broj_indexa);
-		panelBrojIndexa.add(txtBrojIndexa);
-		box.add(panelBrojIndexa);
-		
-		
+		add.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+						
+				Attack a=new Attack();
+				a.setName(txtName.getText());
+				a.setLikelihood(txtLikelihood.getSelectedItem().toString());
+				a.setSeverity(txtSeverity.getSelectedItem().toString());
+				a.setMitigations(txtMitigations.getText());
+				a.setPrerequisites(txtPrerequisites.getText());
+				a.setWeaknesses(txtWeaknesses.getText())
+				;
+				AtteckInsert ai=new AtteckInsert();
+				ai.AddAttack(a);
+					return;
+				}
+		});
 		
 }}
