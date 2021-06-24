@@ -65,7 +65,7 @@ public class Fuzzy extends JDialog{
 		//
 		setBackground(Color.GREEN);
 		setModal(true);
-		setTitle("FUZZY");
+		setTitle("Vulnerability risk assessment");
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double height=screenSize.getHeight();

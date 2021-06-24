@@ -63,7 +63,7 @@ public class AddAttackDialog extends JDialog{
 		
 		setBackground(Color.GREEN);
 		setModal(true);
-		setTitle("Dodavanje studenta");
+		setTitle("Attack");
 		
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		double height=screenSize.getHeight();
@@ -137,13 +137,15 @@ public class AddAttackDialog extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				id.setForeground(Color.BLACK);
 				name.setForeground(Color.BLACK);
-				GetAttack ga=new GetAttack();
-				if((ga.GetAttackByName(txtName.getText())).getName()!=null) {
-					jer.setVisible(true);
-					return;
-				}
+				
 					jer.setVisible(false);				
 					if(!txtId.getText().trim().equals("") && !txtName.getText().trim().equals("")) {
+						
+						GetAttack ga=new GetAttack();
+						if((ga.GetAttackByName(txtName.getText())).getName()!=null) {
+							jer.setVisible(true);
+							return;
+						}
 						Attack a=new Attack();
 						a.setId(txtId.getText());
 						a.setName(txtName.getText());
@@ -151,8 +153,15 @@ public class AddAttackDialog extends JDialog{
 						a.setSeverity(txtSeverity.getSelectedItem().toString());
 						a.setMitigations(txtMitigations.getText());
 						a.setPrerequisites(txtPrerequisites.getText());
-						a.setWeaknesses(txtWeaknesses.getText())
-						;
+						a.setWeaknesses(txtWeaknesses.getText());
+						txtId.setText("");
+						txtName.setText("");
+						txtMitigations.setText("");
+						txtPrerequisites.setText("");
+						txtWeaknesses.setText("");
+						txtLikelihood = new JComboBox<String>();
+						txtSeverity = new JComboBox<String>();
+						
 						AtteckInsert ai=new AtteckInsert();
 						ai.AddAttack(a);
 						dispose();
@@ -162,7 +171,7 @@ public class AddAttackDialog extends JDialog{
 						if(txtName.getText().trim().equals(""))
 							name.setForeground(Color.RED);				
 					}
-				dispose();
+				
 				return;
 			}
 		});

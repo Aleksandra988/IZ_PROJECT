@@ -20,7 +20,7 @@ public class AtteckInsert {
 		insertString += " na:severity" + " \"" + attack.getSeverity() +"\" ; ";
 		insertString += " na:prerequisites" + "\"" + attack.getPrerequisites() +"\" ; ";
 		insertString += " na:mitigations" + "\"" + attack.getMitigations() +"\" ; ";
-		insertString += " na:weaknesses" + "\"" + attack.getMitigations() +"\" . }";
+		insertString += " na:weaknesses" + "\"" + attack.getWeaknesses() +"\" . }";
 	
 		UpdateRequest updateRequest = UpdateFactory.create(insertString);
 		UpdateProcessor updateProcessor = UpdateExecutionFactory.createRemote(updateRequest, UPDATE_URL);
