@@ -3,6 +3,7 @@ package rs.ac.uns.ftn.projekat.dialogs;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import rs.ac.uns.ftn.projekat.connector.CsvConnector;
 import rs.ac.uns.ftn.projekat.main.MyApp;
@@ -50,6 +52,7 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 	public String result_severity;
 	public String result_weaknesses;
 	static String val2 = "";
+	static String val11 = "";
 	
 	
 	
@@ -76,13 +79,14 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 	
 	public void cycle(CBRQuery query) throws ExecutionException {
 		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
-		eval = SelectCases.selectTopKRR(eval, 3);
+		eval = SelectCases.selectTopKRR(eval, 1);
 		String result = "";
 		//System.out.println("Retrieved cases:");
 
 		for (RetrievalResult nse : eval) {
 			//System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
 		    result  = (nse.get_case().getDescription().toString());
+		    //System.out.println(result);
 			String line = "";
 			line = result;
 				if (line.length() == 0)
@@ -97,6 +101,15 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 			String[] values2 = val1.split("=");
 			val2 += values2[1] + "    ";
 			
+			String[] values7 = line.split("\\]");
+			String val7 = values7[0];
+			String[] values6 = line.split("\\[");
+			String val6 = values6[1];
+			String[] values10 = val.split(",");
+     		String val10 = values10[4];
+			String[] values12 = val10.split("=");
+			val11 += values12[1] + "    ";
+			
 			
 			
 			//String val2 = values2[1];
@@ -104,7 +117,7 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 			CBRCase cbrCase = new CBRCase();
 			Attack attack = new Attack();
 			attack.setName(val2);
-			//System.out.println(val2);
+			//System.out.println(val11);
 			
 		    //System.out.println(result);
 		    
@@ -148,6 +161,8 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 		 JComboBox<String> jb_weaknesses=new JComboBox<String>();
 		 JButton findButton = new JButton("Find");
 		 JLabel result = new JLabel();
+		 JButton rbrButton = new JButton("Rule Base Reasoning");
+		 JLabel result1 = new JLabel();
 		 
 		 
 		 
@@ -166,47 +181,65 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 		Box box=Box.createVerticalBox();
 		this.add(box,BorderLayout.CENTER);
 		
-		Box box1=Box.createHorizontalBox();
+		//Box box1=Box.createHorizontalBox();
+		JPanel panel1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		jb_likelihood.addItem("Low");
 		jb_likelihood.addItem("Medium");
 		jb_likelihood.addItem("High");
-		jb_likelihood.addItem("Very_high");
+		jb_likelihood.addItem("Very high");
 		jb_likelihood.setMaximumSize(jb_likelihood.getPreferredSize());
-		box1.add(likelihood_jl);
-		box1.add(jb_likelihood);
-		box1.setAlignmentX(CENTER_ALIGNMENT);
-		box.add(box1);
+		panel1.add(likelihood_jl);
+		panel1.add(jb_likelihood);
+		//panel1.setAlignmentX(LEFT_ALIGNMENT);
+		box.add(panel1);
 		
 		
-		Box box2=Box.createHorizontalBox();
+		//Box box2=Box.createHorizontalBox();
+		JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		jb_severity.addItem("Low");
 		jb_severity.addItem("Medium");
 		jb_severity.addItem("High");
-		jb_severity.addItem("Very_high");
+		jb_severity.addItem("Very high");
 		jb_severity.setMaximumSize(jb_severity.getPreferredSize());
-		box2.add(severity_jl);
-		box2.add(jb_severity);
-		box2.setAlignmentX(CENTER_ALIGNMENT);
-		box.add(box2);
+		panel2.add(severity_jl);
+		panel2.add(jb_severity);
+		//box2.setAlignmentX(LEFT_ALIGNMENT);
+		box.add(panel2);
 		
 		
-		Box box3=Box.createHorizontalBox();
-		jb_weaknesses.addItem("Improper_zeroization");
-		jb_weaknesses.addItem("Incorrect_permissions");
-		jb_weaknesses.addItem("Improper_access_control");
-		jb_weaknesses.addItem("Sensitive_information");
+		//Box box3=Box.createHorizontalBox();
+		JPanel panel3 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		jb_weaknesses.addItem("Improper zeroization");
+		jb_weaknesses.addItem("Incorrect permissions");
+		jb_weaknesses.addItem("Improper access control");
+		jb_weaknesses.addItem("Sensitive information");
+		jb_weaknesses.addItem("Files accessible to external parties");
+		jb_weaknesses.addItem("Missing encryption of sensitive data");
+		jb_weaknesses.addItem("Exposure of sensitive system information");
+		jb_weaknesses.addItem("Poor data encryption");
+		jb_weaknesses.addItem("Missing cryptographic step");
+		jb_weaknesses.addItem("Use of single factor authentication");		
 		jb_weaknesses.setMaximumSize(jb_weaknesses.getPreferredSize());
-		box3.add(weaknesses_jl);
-		box3.add(jb_weaknesses);
-		box3.setAlignmentX(CENTER_ALIGNMENT);
+		panel3.add(weaknesses_jl);
+		panel3.add(jb_weaknesses);
+		//panel3.setAlignmentX(LEFT_ALIGNMENT);
 		
-		box.add(box3);
+		box.add(panel3);
 		
 		//findButton = new JButton("Find");
-		box.add(findButton);
-		Box box5 = Box.createHorizontalBox();
-		box5.add(result);
-		box.add(box5);
+		//Box box10 = Box.createHorizontalBox();
+		JPanel panel4 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panel4.add(findButton);
+		//Box box5 = Box.createHorizontalBox();
+		panel4.add(result);
+		box.add(panel4);
+		//Box box11 = Box.createHorizontalBox();
+		JPanel panel5 = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		panel5.add(rbrButton);
+		//Box box6 = Box.createHorizontalBox();
+		panel5.add(result1);
+		box.add(panel5);
+		//box.add(box10);
 		// result_likelihood = jb_likelihood.getSelectedItem().toString();
 		// result_severity = jb_severity.getSelectedItem().toString();
 		// result_weaknesses = jb_weaknesses.getSelectedItem().toString();
@@ -248,9 +281,23 @@ public class CaseBaseReasoningDialog extends JDialog implements StandardCBRAppli
 				}
 		});
 		
+			rbrButton.addActionListener(new ActionListener() {
+				
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+						
+				result1.setSize(200, 100);
+				result1.setText(val11);
+					return;
+				}
+		});
+		
 		
 		
 	}
+	
+	
 
 	
 }
