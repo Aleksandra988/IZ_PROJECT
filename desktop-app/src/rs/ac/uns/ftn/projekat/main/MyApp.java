@@ -45,64 +45,64 @@ import unbbayes.prs.bn.ProbabilisticNode;
 import unbbayes.util.extension.bn.inference.IInferenceAlgorithm;
 
 
-public class MyApp implements StandardCBRApplication{ 
+public class MyApp{ 
 	
-	Connector _connector;  /** Connector object */
-	CBRCaseBase _caseBase;  /** CaseBase object */
-
-	NNConfig simConfig;  /** KNN configuration */
-	
-	public void configure() throws ExecutionException {
-		_connector =  new CsvConnector();
-		
-		_caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
-		
-		simConfig = new NNConfig(); // KNN configuration
-		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
-		
-		simConfig.addMapping(new Attribute("likelihood", Attack.class), new Equal());
-		// simConfig.addMapping(new Attribute("price", TransactionDescription.class), new Interval(100));
-		simConfig.addMapping(new Attribute("severity", Attack.class), new Equal());
-		simConfig.addMapping(new Attribute("weaknesses", Attack.class), new Equal());
-		//simConfig.addMapping(new Attribute("distanceToPublicTransportation", RealEstateDescription.class), new Threshold(50));
-	//	simConfig.addMapping(new Attribute("localStores", RealEstateDescription.class), new Interval(2));
-
-		// Equal - returns 1 if both individuals are equal, otherwise returns 0
-		// Interval - returns the similarity of two number inside an interval: sim(x,y) = 1-(|x-y|/interval)
-		// Threshold - returns 1 if the difference between two numbers is less than a threshold, 0 in the other case
-		// EqualsStringIgnoreCase - returns 1 if both String are the same despite case letters, 0 in the other case
-		// MaxString - returns a similarity value depending of the biggest substring that belong to both strings
-		// EnumDistance - returns the similarity of two enum values as the their distance: sim(x,y) = |ord(x) - ord(y)|
-		// EnumCyclicDistance - computes the similarity between two enum values as their cyclic distance
-		// Table - uses a table to obtain the similarity between two values. Allowed values are Strings or Enums. The table is read from a text file.
-		// TableSimilarity(List<String> values).setSimilarity(value1,value2,similarity) 
-	}
-
-	public void cycle(CBRQuery query) throws ExecutionException {
-		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
-		eval = SelectCases.selectTopKRR(eval, 2);
-		System.out.println("Retrieved cases:");
-		for (RetrievalResult nse : eval)
-			System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
-	}
-
-	public void postCycle() throws ExecutionException {
-		
-	}
-
-	public CBRCaseBase preCycle() throws ExecutionException {
-		_caseBase.init(_connector);
-		java.util.Collection<CBRCase> cases = _caseBase.getCases();
-		for (CBRCase c: cases)
-			System.out.println(c.getDescription());
-		return _caseBase;
-	}
-
-	private static final String UPDATE_URL = "http://localhost:3030/IZ_ZNANJA/update";
-	private static final String PREFIX = "PREFIX na: <https://dbpedia.org/fct/> PREFIX xsd: <http://w3.org/2001/XMLSchema#>";
+//	Connector _connector;  /** Connector object */
+//	CBRCaseBase _caseBase;  /** CaseBase object */
+//
+//	NNConfig simConfig;  /** KNN configuration */
+//	
+//	public void configure() throws ExecutionException {
+//		_connector =  new CsvConnector();
+//		
+//		_caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
+//		
+//		simConfig = new NNConfig(); // KNN configuration
+//		simConfig.setDescriptionSimFunction(new Average());  // global similarity function = average
+//		
+//		simConfig.addMapping(new Attribute("likelihood", Attack.class), new Equal());
+//		// simConfig.addMapping(new Attribute("price", TransactionDescription.class), new Interval(100));
+//		simConfig.addMapping(new Attribute("severity", Attack.class), new Equal());
+//		simConfig.addMapping(new Attribute("weaknesses", Attack.class), new Equal());
+//		//simConfig.addMapping(new Attribute("distanceToPublicTransportation", RealEstateDescription.class), new Threshold(50));
+//	//	simConfig.addMapping(new Attribute("localStores", RealEstateDescription.class), new Interval(2));
+//
+//		// Equal - returns 1 if both individuals are equal, otherwise returns 0
+//		// Interval - returns the similarity of two number inside an interval: sim(x,y) = 1-(|x-y|/interval)
+//		// Threshold - returns 1 if the difference between two numbers is less than a threshold, 0 in the other case
+//		// EqualsStringIgnoreCase - returns 1 if both String are the same despite case letters, 0 in the other case
+//		// MaxString - returns a similarity value depending of the biggest substring that belong to both strings
+//		// EnumDistance - returns the similarity of two enum values as the their distance: sim(x,y) = |ord(x) - ord(y)|
+//		// EnumCyclicDistance - computes the similarity between two enum values as their cyclic distance
+//		// Table - uses a table to obtain the similarity between two values. Allowed values are Strings or Enums. The table is read from a text file.
+//		// TableSimilarity(List<String> values).setSimilarity(value1,value2,similarity) 
+//	}
+//
+//	public void cycle(CBRQuery query) throws ExecutionException {
+//		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
+//		eval = SelectCases.selectTopKRR(eval, 2);
+//		System.out.println("Retrieved cases:");
+//		for (RetrievalResult nse : eval)
+//			System.out.println(nse.get_case().getDescription() + " -> " + nse.getEval());
+//	}
+//
+//	public void postCycle() throws ExecutionException {
+//		
+//	}
+//
+//	public CBRCaseBase preCycle() throws ExecutionException {
+//		_caseBase.init(_connector);
+//		java.util.Collection<CBRCase> cases = _caseBase.getCases();
+//		for (CBRCase c: cases)
+//			System.out.println(c.getDescription());
+//		return _caseBase;
+//	}
+//
+//	private static final String UPDATE_URL = "http://localhost:3030/IZ_ZNANJA/update";
+//	private static final String PREFIX = "PREFIX na: <https://dbpedia.org/fct/> PREFIX xsd: <http://w3.org/2001/XMLSchema#>";
 
 	public static void main(String[] args) throws LoadException, IOException {
-		StandardCBRApplication recommender = new MyApp();
+		/*StandardCBRApplication recommender = new MyApp();
 		try {
 			recommender.configure();
 
@@ -122,7 +122,7 @@ public class MyApp implements StandardCBRApplication{
 			recommender.postCycle();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		} */
 /*		String insertString = PREFIX + " INSERT DATA { ";
 
 		insertString += " na:" + "attack222" + " a na:Attack; ";

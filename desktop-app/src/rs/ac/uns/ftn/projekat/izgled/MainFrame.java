@@ -26,6 +26,7 @@ import javax.swing.border.BevelBorder;
 
 import rs.ac.uns.ftn.projekat.dialogs.AddAttackDialog;
 import rs.ac.uns.ftn.projekat.dialogs.BayesDialog;
+import rs.ac.uns.ftn.projekat.dialogs.CaseBaseReasoningDialog;
 import rs.ac.uns.ftn.projekat.dialogs.Fuzzy;
 import unbbayes.io.BaseIO;
 import unbbayes.io.NetIO;
@@ -88,6 +89,11 @@ public class MainFrame extends JFrame {
 		JToggleButton btn3 = new JToggleButton("Fuzzy");
 		panel.add(btn3);
 		
+		
+
+		JToggleButton btn4 = new JToggleButton("Case Base Reasoning");
+		panel.add(btn4);
+		
 		btn1.addActionListener(new ActionListener() {
 			
 			@Override
@@ -99,6 +105,20 @@ public class MainFrame extends JFrame {
 					return;
 				}
 		});
+		
+		btn4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+						
+					
+				CaseBaseReasoningDialog aad=new CaseBaseReasoningDialog();
+				aad.setVisible(true);
+					return;
+				}
+		});
+		
 		
 		btn2.addActionListener(new ActionListener() {
 			
