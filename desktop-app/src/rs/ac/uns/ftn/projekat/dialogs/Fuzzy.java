@@ -3,17 +3,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.crypto.spec.PSource;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,10 +16,6 @@ import javax.swing.JRadioButton;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
-
-import javax.swing.JRadioButton;
-//import net.sourceforge.jFuzzyLogic.FIS;
-//import net.sourceforge.jFuzzyLogic.JFuzzyLogic;
 
 public class Fuzzy extends JDialog{
 	
@@ -100,7 +90,7 @@ public class Fuzzy extends JDialog{
 		Box box=Box.createVerticalBox();
 		this.add(box,BorderLayout.CENTER);
 		
-		value.setForeground(Color.YELLOW);
+		value.setForeground(Color.ORANGE);
 		
 		//severity
 		JPanel sev = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -612,9 +602,8 @@ public class Fuzzy extends JDialog{
 			value.setForeground(Color.GREEN);
 		}else {
 			value.setText("vulnerability : MEDIUM");
-			value.setForeground(Color.YELLOW);
+			value.setForeground(Color.ORANGE);
 		}
-		System.out.println(res);
 	}	
 
 }

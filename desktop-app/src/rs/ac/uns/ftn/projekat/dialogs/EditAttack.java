@@ -9,16 +9,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import rs.ac.uns.ftn.projekat.database.AtteckInsert;
+import rs.ac.uns.ftn.projekat.database.GetAttack;
 import rs.ac.uns.ftn.projekat.database.UpdateAttack;
 import rs.ac.uns.ftn.projekat.model.Attack;
 
@@ -143,19 +141,30 @@ public class EditAttack extends JDialog{
 		panelW.add(weaknesses);
 		panelW.add(txtWeaknesses);
 		box.add(panelW);	
-		
-		Box btn=Box.createVerticalBox();
-		this.add(box,BorderLayout.CENTER);
+
+		JPanel btn= new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton no=new JButton("Cancel");
 		btn.add(no);
 		JButton ed=new JButton("Edit");
 		btn.add(ed);
 		box.add(btn);
+
+		JLabel jer=new JLabel("The attack already exists!");
+		jer.setForeground(Color.RED);
+		jer.setVisible(false);
+		box.add(jer);
+		
 		ed.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				if(!txtName.getText().equals(attack.getName())) {
+					GetAttack ga=new GetAttack();
+					if((ga.GetAttackByName(txtName.getText())).getName()!=null) {
+						jer.setVisible(true);
+						return;
+					}
+				}
 				if(!txtName.getText().trim().equals("")) {
 					name.setForeground(Color.RED);
 					Attack a=new Attack();
